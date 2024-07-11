@@ -1,0 +1,379 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>PROJECT PAGE</title>
+<link rel="stylesheet" href="CSS/stylesheet.css">
+<style>
+    @font-face {
+        font-family: 'Built';
+        src: url("../fonts/built_titling/built titling bd.otf") format('truetype');
+    }
+
+    @font-face {
+        font-family: 'GoBold';
+        src: url("../fonts/gobold/Gobold Light.otf") format('truetype');
+    }
+	
+body {
+  font-family: Arial, sans-serif;
+  min-height: 40vh;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Hide horizontal scrollbar */
+  background-image: url("IMG/proposal bg.jpg")); /* Replace 'path_to_your_image.jpg' with the path to your image */
+  background-size: cover; /* Cover the entire background */
+  background-position: center; /* Center the background image*/
+}
+
+.navbar {
+  position: fixed;
+  top: 0; /* Align to the top of the viewport */
+  left: 0;
+  right: 0;
+  z-index: 2; /* Ensure the navigation bar is above other elements */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px; /* Adjusted padding */
+}
+
+.navbar .logo img {
+  margin-left: 25px;
+  height: 40px;
+  transform: translate(-50%, -50%) rotateY(360deg); /* Initially rotate the logo to face the back */
+  animation: spinLogo 10s infinite linear; /* Animation for spin (slowed down to 10 seconds) */
+  transition: transform 0.3s, filter 0.3s; /* Add transition for smooth transformation */
+  filter: drop-shadow(0 0 10px white); /* Add white glow behind the image */
+}
+
+.navbar .logo img:hover {
+  transform: translate(-50%, -50%) rotateY(0deg) scale(1.1); /* Scale up 10% on hover */
+  filter: brightness(0) invert(1); /* Change color to white on hover */
+  animation-play-state:running; /* Pause the spin animation on hover */
+}
+
+@keyframes spinLogo {
+  0%, 100% {
+    transform: translate(-50%, -50%) rotateY(360deg); /* Start and end position facing back */
+  }
+  50% {
+    transform: translate(-50%, -50%) rotateY(180deg); /* Halfway point facing front */
+  }
+}
+
+.navbar .nav-buttons a {
+  text-decoration: none;
+  color: black; /* Button text color */
+  padding: 10px 20px; /* Adjusted padding */
+  margin-left: 10px; /* Adjust the spacing between buttons */
+  margin-bottom: 50px;
+  font-weight: bold; /* Make the text bold */
+  transition: background-color 0.3s, color 0.3s; /* Add a transition for background-color and color */
+  border-radius: 20px; /* Rounded corners */
+  display: inline-block;
+  text-shadow: 1px 1px 9px rgba(255, 255, 255, 0.6);
+}
+
+.navbar .nav-buttons a:hover {
+  background-color: rgba(0, 0, 0, 0.4); /* Hover background color with alpha for transparency */
+  color: white; /* Hover text color */
+}
+
+.navbar .nav-buttons a:hover {
+  transform: translateY(-2px); /* Move button up slightly on hover */
+}
+
+.navbar .nav-buttons a:active {
+  animation: bounce 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Apply bounce animation on click */
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0); /* Initial and final state (no movement) */
+  }
+  10% {
+    transform: translateY(-5px); /* Bounce up */
+  }
+  10% {
+    transform: translateY(-5px); /* Bounce down */
+  }
+}
+
+.box-section {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr; /* Three columns */
+    grid-template-rows: 1fr 1fr; /* Two rows */
+    padding: 20px;
+    margin-top: 100px; /* Adjust as needed for spacing below the navbar */
+    max-width: 1200px; /* Set a maximum width */
+    margin: 100px auto; /* Center the section horizontally */
+	 text-align: center;
+}
+
+.section-title {
+    grid-column: 1 / 4; /* Spans across all columns */
+    grid-row: 1 / 2; /* First row */
+    font-size: 90px; /* Adjust font size as needed */
+    font-family: 'Built', sans-serif; /* Fix the font-family syntax */
+    color: white; /* Adjust color */
+    margin-top: -80px; /* Space below the title */
+}
+.box {
+    position: relative;
+    overflow: hidden;
+    height: 300px; /* Default height for boxes */
+    display: flex;
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center items horizontally */
+}
+
+.box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.box:hover img {
+    transform: scale(1.1); /* Scale up on hover */
+}
+
+.box .box-text {
+    position: absolute;
+    top: 50%; /* Move the top edge of the box-text to the middle of the box */
+    left: 0;
+    right: 0;
+    transform: translateY(-50%); /* Center vertically */
+    text-align: center;
+    color: white;
+    padding: 10px;
+    opacity: 0; /* Hide initially */
+    transition: opacity 0.3s ease;
+	font-size: 40px;
+    font-family: 'GoBold', sans-serif; /* Fix the font-family syntax */
+	text-shadow: 1px 1px 9px rgba(255, 255, 255, 0.6);
+}
+
+.box:hover .box-text {
+    opacity: 1; /* Show on hover */
+}
+
+.box1 {
+    grid-column: 1 / 2; /* Spans the first column */
+    grid-row: 1 / 3; /* Spans two rows */
+    height: 620px; /* Specific height for the large box */
+	margin-top: 50px;
+}
+
+.box2 {
+    grid-column: 2 / 4; /* Spans the second and third columns */
+    grid-row: 1 / 2; /* Spans one row */
+    height: 310px; /* Set specific height */
+	margin-top: 50px;
+}
+
+.box3 {
+    grid-column: 2 / 3; /* Spans the second column */
+    grid-row: 2 / 3; /* Spans one row */
+    height: 310px; /* Set specific height */
+	
+}
+
+.box4 {
+    grid-column: 3 / 4; /* Spans the third column */
+    grid-row: 2 / 3; /* Spans one row */
+    height: 310px; /* Set specific height */
+}
+
+.footer {
+    background: black;
+    padding: 20px;
+    color: white;
+    width: 98%;
+    height: 250px;
+    margin-top: 50px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    position: relative;
+}
+
+.footer-left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.footer-logo {
+    height: 50px;
+    filter: brightness(0) invert(1); /* Change color to white */
+    margin-left: 20px;
+}
+
+.footer-name {
+    margin-top: 10px;
+    margin-left: 20px;
+    font-size: 15px;
+    font-weight: bold;
+    font-family: GoBold, sans-serif;
+}
+
+.footer-center {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 50%;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    font-family: GoBold, sans-serif;
+    margin-left: -50px;
+}
+
+.contact {
+    display: flex;
+    flex-direction: column;
+    font-family: GoBold, sans-serif;
+}
+
+.info-title, .contact-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.info-content div, .contact-content .social-icon {
+    margin-bottom: 10px;
+}
+
+.social-icon {
+    height: 40px;
+    margin-right: 10px;
+    transition: transform 0.3s ease-in-out; /* Add transition for smooth effect */
+}
+
+.social-icon:hover {
+    transform: scale(1.2); /* Zoom in effect on hover */
+}
+
+.footer-line {
+    position: absolute;
+    bottom: -380px;
+    left: 50%;
+    width: 65%;
+    height: 2px;
+    background-color: white;
+    transform: translateX(-50%);
+}
+
+.footer-bottom-text {
+    position: absolute;
+    bottom: -510px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 94px;
+    font-weight: bold;
+    font-family: 'Built', sans-serif;
+    color: transparent;
+    background: linear-gradient(135deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    -webkit-background-clip: text;
+    animation: subtleStrobe 4s infinite;
+}
+
+@keyframes subtleStrobe {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.6;
+    }
+}
+
+@keyframes sparkle {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 100% 100%;
+    }
+}
+</style>
+</head>
+<body>
+<div class="navbar">
+  <div class="logo">
+    <a href="index.html"><img src="IMG/NAS LOGO.png" alt="Logo"></a>
+  </div>
+  <div class="nav-buttons">
+    <a href="about.html">ABOUT ME</a>
+    <a href="project.html">PROJECTS</a>
+    <a href="services.html">SERVICES</a>
+  </div>
+</div>	
+	
+<div class="box-section">
+	<h1 class="section-title">PROJECTS</h1>
+    <div class="box box1">
+        <a href="https://drive.google.com/drive/folders/1YVgENgqQxaWbmD8x5rVvexAcHbhw3C1D?usp=drive_link" target="_blank">
+            <img src="IMG/EXAMPLE PIC.jpg" alt="Image 1">
+            <div class="box-text">GRAPHIC DESIGN</div>
+        </a>
+    </div>
+    <div class="box box2">
+        <a href="https://drive.google.com/drive/folders/19kTWRxvNfeyy-g8kL1BphMNIKMdSgaFZ?usp=drive_link" target="_blank">
+            <img src="IMG/EXAMPLE PIC.jpg" alt="Image 2">
+            <div class="box-text">ILLUSTRATION</div>
+        </a>
+    </div>
+    <div class="box box3">
+        <a href="https://drive.google.com/drive/folders/1t-UrZJ4U7qxQ8fxmRFIMBVNyQ_oOpYxK?usp=drive_link" target="_blank">
+            <img src="IMG/EXAMPLE PIC.jpg" alt="Image 3">
+            <div class="box-text">MEDIA 
+				EDITING</div>
+        </a>
+    </div>
+    <div class="box box4">
+        <a href="https://drive.google.com/drive/folders/1UVVhmUWK9bB0_AbIldftCyZh_I_7mib0?usp=drive_link" target="_blank">
+            <img src="IMG/EXAMPLE PIC.jpg" alt="Image 4">
+            <div class="box-text">WEBSITE</div>
+        </a>
+    </div>
+</div>
+	
+	 <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-left">
+                <img src="IMG/NAS LOGO.png" alt="Logo" class="footer-logo">
+                <div class="footer-name">NUR ALLIESYA SOFEA.</div>
+            </div>
+            <div class="footer-center">
+                <div class="info">
+                    <div class="info-title">INFO</div>
+                    <div class="info-content">
+                        <div>BASED IN PETALING JAYA, SELANGOR.</div>
+                        <div>(60)-13-522-0589</div>
+                    </div>
+                </div>
+ <div class="contact">
+    <div class="contact-title">CONTACT</div>
+    <div class="contact-content">
+        <a href="mailto:alliesyasofeaa@gmail.com" target="_blank"><img src="IMG/email.png" alt="Email" class="social-icon"></a>
+        <a href="https://wa.me/60135220589" target="_blank"><img src="IMG/phone-call.png" alt="WhatsApp" class="social-icon"></a>
+        <a href="https://www.linkedin.com/in/alliesya-sofea" target="_blank"><img src="IMG/linkedin.png" alt="LinkedIn" class="social-icon"></a>
+    </div>
+</div>
+</div>
+            </div>
+            <div class="footer-line"></div>
+			 <div class="footer-bottom-text">
+        LET'S WORK TOGETHER
+    </div>
+</footer>
+</body>
+</html>
