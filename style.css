@@ -1,0 +1,595 @@
+
+@font-face {
+  font-family: 'Built';
+  src: url("../fonts/built_titling/built titling bd.otf")format('truetype');
+}
+
+@font-face {
+  font-family: 'GoBold';
+  src: url("../fonts/gobold/Gobold Light.otf")format('truetype');
+}
+
+/* CSS Document */
+body {
+  font-family: Arial, sans-serif;
+  min-height: 250vh;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Hide horizontal scrollbar */
+  background-image: url("../IMG/proposal bg.jpg"); /* Replace 'path_to_your_image.jpg' with the path to your image */
+  background-size: cover; /* Cover the entire background */
+  background-position: center; /* Center the background image */
+}
+
+.navbar {
+  position: fixed;
+  top: 0; /* Align to the top of the viewport */
+  left: 0;
+  right: 0;
+  z-index: 2; /* Ensure the navigation bar is above other elements */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px; /* Adjusted padding */
+}
+
+.navbar .logo img {
+  margin-left: 25px;
+  height: 40px;
+  transform: translate(-50%, -50%) rotateY(360deg); /* Initially rotate the logo to face the back */
+  animation: spinLogo 10s infinite linear; /* Animation for spin (slowed down to 10 seconds) */
+  transition: transform 0.3s, filter 0.3s; /* Add transition for smooth transformation */
+  filter: drop-shadow(0 0 10px white); /* Add white glow behind the image */
+}
+
+.navbar .logo img:hover {
+  transform: translate(-50%, -50%) rotateY(0deg) scale(1.1); /* Scale up 10% on hover */
+  filter: brightness(0) invert(1); /* Change color to white on hover */
+  animation-play-state:running; /* Pause the spin animation on hover */
+}
+
+@keyframes spinLogo {
+  0%, 100% {
+    transform: translate(-50%, -50%) rotateY(360deg); /* Start and end position facing back */
+  }
+  50% {
+    transform: translate(-50%, -50%) rotateY(180deg); /* Halfway point facing front */
+  }
+}
+
+.navbar .nav-buttons a {
+  text-decoration: none;
+  color: black; /* Button text color */
+  padding: 10px 20px; /* Adjusted padding */
+  margin-left: 10px; /* Adjust the spacing between buttons */
+  margin-bottom: 50px;
+  font-weight: bold; /* Make the text bold */
+  transition: background-color 0.3s, color 0.3s; /* Add a transition for background-color and color */
+  border-radius: 20px; /* Rounded corners */
+  display: inline-block;
+  text-shadow: 1px 1px 9px rgba(255, 255, 255, 0.6);
+}
+
+.navbar .nav-buttons a:hover {
+  background-color: rgba(0, 0, 0, 0.4); /* Hover background color with alpha for transparency */
+  color: white; /* Hover text color */
+}
+
+.navbar .nav-buttons a:hover {
+  transform: translateY(-2px); /* Move button up slightly on hover */
+}
+
+.navbar .nav-buttons a:active {
+  animation: bounce 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Apply bounce animation on click */
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0); /* Initial and final state (no movement) */
+  }
+  10% {
+    transform: translateY(-5px); /* Bounce up */
+  }
+  10% {
+    transform: translateY(-5px); /* Bounce down */
+  }
+}
+
+/* CSS Document */
+body {
+  font-family: Arial, sans-serif;
+  min-height: 250vh;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Hide horizontal scrollbar */
+  background-image: url("../IMG/proposal bg.jpg"); /* Replace 'path_to_your_image.jpg' with the path to your image */
+  background-size: cover; /* Cover the entire background */
+  background-position: center; /* Center the background image */
+}
+
+.navbar {
+  position: fixed;
+  top: 0; /* Align to the top of the viewport */
+  left: 0;
+  right: 0;
+  z-index: 2; /* Ensure the navigation bar is above other elements */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px; /* Adjusted padding */
+}
+
+.navbar .logo img {
+  height: 40px; /* Adjust the height as needed */
+  transition: transform 0.3s, filter 0.3s; /* Add a transition for the transform and filter */
+}
+
+.navbar .logo img:hover {
+  transform: scale(1.1); /* Zoom in by 10% */
+  filter: brightness(0) invert(1); /* Change color to white */
+}
+
+.navbar .nav-buttons a {
+  text-decoration: none;
+  color: black; /* Button text color */
+  padding: 10px 20px; /* Adjusted padding */
+  margin-left: 10px; /* Adjust the spacing between buttons */
+  font-weight: bold; /* Make the text bold */
+  transition: background-color 0.3s, color 0.3s; /* Add a transition for background-color and color */
+  border-radius: 20px; /* Rounded corners */
+}
+
+.navbar .nav-buttons a:hover {
+  background-color: rgba(0, 0, 0, 0.4); /* Hover background color with alpha for transparency */
+  color: white; /* Hover text color */
+}
+
+.video-container {
+  position: absolute;
+  top: 0px; /* Adjust the top position to match the height of your navigation bar */
+  width: 100%;
+  height: calc(105vh - 56px); /* Calculate the height of the video container */
+  overflow: hidden; /* Hide overflow content */
+  z-index: 1; /* Position the video container below the navigation bar */
+}
+
+video {
+ width: 100%;
+  height: auto;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+video::-webkit-media-controls {
+  display:none !important;
+}
+
+.top-left-text {
+  position: absolute;
+  top: 150px;
+  left: 60px;
+  color: black;
+  font-size: 100px;
+  max-width: 700px;
+  font-family: Built , sans-serif; /* Change font for top left text */
+  line-height: 1.0; /* Adjust line height */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Add a shadow with a slight blur */
+}
+
+.bottom-text {
+  position: absolute;
+  top: 360px;
+  left: 60px;
+  color: black;
+  font-size: 18px;
+  max-width: 450px;
+  letter-spacing: 0.3px; /* Add letter spacing */
+  line-height: 1.5; /* Adds space between lines */
+  text-align: justify; /* Justifies the text alignment */
+  font-family: 'GoBold', sans-serif; /* Change font for bottom text */
+}
+
+.square-section {
+  position: absolute;
+  top: 800px; /* Adjust the top position as needed */
+  left: 350px; /* Adjust the left position as needed */
+}
+
+.square {
+  width: 350px;
+  height: 450px;
+  background-color: #ccc;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative; /* Make it relative for the absolute positioned lines */
+  transition: background-color 0.3s, box-shadow 0.3s; /* Add transition for background-color and box-shadow */
+}
+
+.square:hover {
+  background-color: #f0f0f0; /* Change background color on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8); /* Add shadow on hover */
+  z-index: 2;
+}
+
+.vertical-line {
+  position: absolute;
+  left: 10px; /* Adjust the position to the left */
+  width: 3px; /* Adjust the width of the line */
+  height: 100%; /* Full height of the square */
+  background-color: black; /* Color of the line */
+}
+
+.horizontal-line {
+  position: absolute;
+  bottom: 10px; /* Adjust the position to the bottom */
+  left: 0;
+  width: 100%; /* Full width of the square */
+  height: 3px; /* Adjust the height of the line */
+  background-color: black; /* Color of the line */
+}
+
+.education-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center items horizontally */
+  justify-content: center; /* Center items vertically */
+  width: 90%; /* Adjust the width as needed */
+  height: 90%; /* Adjust the height as needed */
+  margin-top: -980px;
+  margin-left: 15px;
+}
+
+/* Adjust styles for education text */
+.education-section .big-text {
+  font-size: 48px;
+  color: black;
+  font-family: Built, sans-serif;
+}
+
+.education-section .small-texts {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Align items to the left */
+  width: 100%;
+  height: 100%;
+}
+
+.education-section .small-text-item {
+  font-size: 20px;
+  color: black;
+  margin-top: 25px;
+  position: relative;
+  font-family: 'GoBold', sans-serif;
+}
+
+.education-section .text {
+  position: relative;
+}
+
+.education-section .tiny-text {
+  font-size: 12px;
+  color: gray;
+  margin-top: 2px;
+  font-family: Constantia, "Lucida Bright", "DejaVu Serif", Georgia, "serif"san serif;
+} 
+.rectangle-section {
+  position: absolute;
+  top: 1165px; /* Adjust the top position as needed */
+  right: 350px; /* Adjust the right position as needed */
+  display: flex;
+  justify-content: center;
+  z-index: 1; /* Ensure the squares are above the rectangles */
+}
+
+.rectangle {
+  width: 600px; /* Adjust the width */
+  height: 300px; /* Adjust the height */
+  background-color: #ccc; /* Adjust the color */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Add shadow */
+  position: relative; /* Make it relative for the absolute positioned lines */
+  transition: background-color 0.3s, box-shadow 0.3s; /* Add transition for background-color and box-shadow */
+}
+
+.rectangle:hover {
+  background-color: #f0f0f0; /* Change background color on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8); /* Add shadow on hover */
+}
+
+.v-line {
+  position: absolute;
+  left: 587px; /* Adjust the position to the left */
+  width: 3px; /* Adjust the width of the line */
+  height: 100%; /* Full height of the square */
+  background-color: black; /* Color of the line */
+}
+
+.rectangle-section .big-text {
+  font-size: 48px;
+  margin-top: 15px;
+  color: black;
+  font-family: Built, sans-serif;
+  margin-left: 45px; /* Adjust this value to move the text to the right */
+  margin-bottom: 10px;
+}
+
+.rectangle-section .small-text-item {
+  font-size: 20px;
+  color: black;
+  margin-top: 15px;
+  position: relative;
+  font-family: 'GoBold', sans-serif;
+  margin-left: 85px; /* Adjust this value to move the text to the right */
+}
+
+.rectangle-section .small-text-item::before {
+  content: '';
+  display: inline-block;
+  width: 10px; /* Width of the circle */
+  height: 10px; /* Height of the circle */
+  background-color: black; /* Color of the circle */
+  border-radius: 50%; /* Make it a circle */
+  margin-right: 10px; /* Space between the circle and the text */
+  position: absolute;
+  left: -25px; /* Adjust this value to position the circle */
+  top: 50%;
+  transform: translateY(-50%); /* Center the circle vertically */
+}
+
+.rectangle-section .logo-container {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  right: 110px; /* Adjust this value to position the logos */
+  top: 105px;
+  height: 1%;
+  justify-content: space-between;
+}
+
+.rectangle-section .logo-container .logo-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.rectangle-section .logo-container .logo {
+  width: 60px; /* Adjust the width of the logos */
+  height: 60px; /* Adjust the height of the logos */
+  margin-left: 20px;
+  margin-bottom: 20px; /* Space between logos */
+}
+
+.rectangle-section .logo-container .canva-logo {
+  width: 70px; /* Adjust this value to make the logo wider */
+}
+
+.rectangle-section .logo-container .dreamweaver-logo {
+  margin-left: 26px;
+}
+
+.experience-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 740px; /* Adjust the margin as needed */
+  margin-top: 13px;
+}
+
+.big-text {
+  font-size: 47px;
+  color: black;
+  margin-top: 800px; /* Adjust the margin as needed */
+  font-family: Built, sans-serif;
+}
+
+.small-texts {
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+}
+
+.small-text-item {
+  font-size: 20px;
+  color: black;
+  margin-top: 10px;
+  position: relative;
+  letter-spacing: 0.3px; /* Add letter spacing */
+  font-family: 'GoBold', sans-serif; /* Change font for bottom text */
+}
+
+.text-box {
+  padding: 5px;
+  border-radius: 10px; /* Rounded corners */
+  width: 380px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Add shadow */
+  position: relative; /* Make it relative for the absolute positioned lines */
+  transition: background-color 0.3s, box-shadow 0.3s; /* Add transition for background-color and box-shadow */
+}
+
+.text-box:hover {
+  background-color: #f0f0f0; /* Change background color on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8); /* Add shadow on hover */
+}
+
+
+.text {
+    position: relative;
+}
+
+.tiny-text {
+  font-size: 12px; /* Adjust the font size for the tiny text */
+  color: gray; /* Adjust the color for the tiny text */
+  margin-top: 1px; /* Adjust the margin top for the tiny text */
+  letter-spacing: 0.3px; /* Add letter spacing */
+  font-family: Constantia, "Lucida Bright", "DejaVu Serif", Georgia, "serif"san serif; /* Adjust the font family for the tiny text */
+} 
+
+.footer {
+    background: black;
+    padding: 20px;
+    color: white;
+    width: 98%;
+    height: 250px;
+    margin-top: 427px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    position: relative;
+}
+
+.footer-left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.footer-logo {
+    height: 50px;
+    filter: brightness(0) invert(1); /* Change color to white */
+    margin-left: 20px;
+}
+
+.footer-name {
+    margin-top: 10px;
+    margin-left: 20px;
+    font-size: 15px;
+    font-weight: bold;
+    font-family: GoBold, sans-serif;
+}
+
+.footer-center {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 50%;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    font-family: GoBold, sans-serif;
+    margin-left: -50px;
+}
+
+.contact {
+    display: flex;
+    flex-direction: column;
+    font-family: GoBold, sans-serif;
+}
+
+.info-title, .contact-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.info-content div, .contact-content .social-icon {
+    margin-bottom: 10px;
+}
+
+.social-icon {
+    height: 40px;
+    margin-right: 10px;
+    transition: transform 0.3s ease-in-out; /* Add transition for smooth effect */
+}
+
+.social-icon:hover {
+    transform: scale(1.2); /* Zoom in effect on hover */
+}
+
+.footer-line {
+    position: absolute;
+    bottom: -970px;
+    left: 50%;
+    width: 65%;
+    height: 2px;
+    background-color: white;
+    transform: translateX(-50%);
+}
+
+.footer-bottom-text {
+    position: absolute;
+    bottom: -1100px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 94px;
+    font-weight: bold;
+    font-family: 'Built', sans-serif;
+    color: transparent;
+    background: linear-gradient(135deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    -webkit-background-clip: text;
+    animation: subtleStrobe 4s infinite;
+}
+
+@keyframes subtleStrobe {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.6;
+    }
+}
+
+@keyframes sparkle {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 100% 100%;
+    }
+}
+
+@keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-100%);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(100%);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Initial styles for the elements */
+        .square, .rectangle {
+            opacity: 0;
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        /* Initial transform for sliding in from the sides */
+        .square {
+            transform: translateX(-100%);
+        }
+
+        .rectangle, .experience {
+            transform: translateX(100%);
+        }
+
+        /* Apply animations when elements are in view */
+        .square.in-view {
+            opacity: 1;
+            transform: translateX(0);
+            animation: slideInLeft 0.6s forwards;
+        }
+
+        .rectangle.in-view {
+            opacity: 1;
+            transform: translateX(0);
+            animation: slideInRight 0.6s forwards;
+        }
