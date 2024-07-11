@@ -1,12 +1,12 @@
 
 @font-face {
   font-family: 'Built';
-  src: url("fonts/built_titling/built titling bd.otf")format('truetype');
+  src: url("/fonts/built_titling/built titling bd.otf")format('truetype');
 }
 
 @font-face {
   font-family: 'GoBold';
-  src: url("fonts/gobold/Gobold Light.otf")format('truetype');
+  src: url("/fonts/gobold/Gobold Light.otf")format('truetype');
 }
 
 /* CSS Document */
